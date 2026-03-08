@@ -1,0 +1,35 @@
+# Secrets — never commit
+.env
+*.env
+.env.*
+
+# Python
+.venv/
+venv/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+*.egg-info/
+dist/
+build/
+
+# Output & logs
+output/
+logs/
+*.log
+
+# Node / React app
+app/node_modules/
+app/dist/
+app/.vite/
+
+# macOS
+.DS_Store
+**/.DS_Store
+
+# IDE
+.vscode/
+.idea/
+*.swp

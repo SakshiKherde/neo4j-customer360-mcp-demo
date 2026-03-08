@@ -1,0 +1,66 @@
+newsletter:
+  name: "The Daily Brief"
+  recipient_email: "you@example.com"
+  recipient_name: "Your Name"
+  send_time: "07:00"
+  mode: daily             # daily or weekly
+  timezone: "America/Los_Angeles"
+
+stories:
+  total: 25               # articles fed into Claude for generation
+  top_stories: 7          # stories in the "Top Stories" section
+  per_section: 3          # stories per domain section
+  worth_watching: 3
+  for_content: 3
+
+interests:
+  primary:
+    - AI and emerging technology
+    - Startups, venture capital, developer tools, B2B SaaS
+    - Product marketing and GTM strategy
+    - Graph databases and AI infrastructure
+  secondary:
+    - Business strategy and major company moves
+    - Consumer tech and internet culture
+    - Personal finance and investing
+    - Fashion, beauty, and luxury trends
+    - Wellness, fitness, and longevity
+    - San Francisco and Bay Area culture
+    - Major world news
+  boost_keywords:
+    - OpenAI
+    - Anthropic
+    - Claude
+    - LLM
+    - agent
+    - SaaS
+    - Series A
+    - San Francisco
+    - Nvidia
+    - Apple
+    - Google
+    - founders
+    - startup
+    - AI
+
+sources:
+  preferred:
+    - TechCrunch
+    - The Verge
+    - Wired
+    - Reuters
+    - Hacker News
+  deprioritized: []
+  max_age_hours: 24
+
+email:
+  provider: resend          # resend or gmail
+  from_address: "onboarding@resend.dev"
+  from_name: "The Daily Brief"
+
+graph:
+  uri: "bolt://localhost:7687"
+  user: "neo4j"
+  password: "your-neo4j-password"
+  database: "neo4j"
+  enabled: true

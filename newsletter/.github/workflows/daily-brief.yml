@@ -1,0 +1,41 @@
+name: The Daily Brief
+
+on:
+  schedule:
+    - cron: '0 14 * * *'   # 7:00 AM Pacific (14:00 UTC) every day
+  workflow_dispatch:         # also lets you trigger manually from GitHub UI
+
+jobs:
+  send-newsletter:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Send newsletter
+        env:
+          ANTHROPIC_API_KEY:    ${{ secrets.ANTHROPIC_API_KEY }}
+          RESEND_API_KEY:       ${{ secrets.RESEND_API_KEY }}
+          NEO4J_URI:            ${{ secrets.NEO4J_URI }}
+          NEO4J_USER:           ${{ secrets.NEO4J_USER }}
+          NEO4J_PASSWORD:       ${{ secrets.NEO4J_PASSWORD }}
+          NEWSLETTER_RECIPIENT: ${{ secrets.NEWSLETTER_RECIPIENT }}
+        run: python main.py
+
+      - name: Upload HTML preview (on failure)
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: newsletter-preview
+          path: output/

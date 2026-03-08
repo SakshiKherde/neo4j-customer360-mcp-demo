@@ -1,0 +1,40 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  background-color: #FFFFFF;
+  color: #1C1B19;
+  font-family: 'Inter', system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+::selection {
+  background: rgba(184,144,106,0.18);
+  color: #1C1B19;
+}
+
+::-webkit-scrollbar { width: 3px; }
+::-webkit-scrollbar-track { background: #FFFFFF; }
+::-webkit-scrollbar-thumb { background: #D4C8B8; border-radius: 2px; }
+::-webkit-scrollbar-thumb:hover { background: #B8906A; }
+
+@layer utilities {
+  .text-gradient-gold {
+    background: linear-gradient(135deg, #1C1A16 0%, #3D3830 60%, #1C1A16 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .glow-tech    { box-shadow: 0 0 40px rgba(107,159,212,0.12); }
+  .glow-fashion { box-shadow: 0 0 40px rgba(201,122,150,0.12); }
+  .glow-wellness{ box-shadow: 0 0 40px rgba(107,175,148,0.12); }
+  .glow-gold    { box-shadow: 0 0 40px rgba(184,144,106,0.12); }
+}
